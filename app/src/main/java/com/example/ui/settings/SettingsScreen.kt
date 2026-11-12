@@ -275,7 +275,7 @@ fun SettingsScreen(
                 }
             }
 
-            // Section 5: GitHub Link
+            // Section 5: Documentation en ligne & Dépôt
             item {
                 Card(
                     shape = RoundedCornerShape(18.dp),
@@ -285,11 +285,7 @@ fun SettingsScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            val intent = Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://github.com/hephaistos-org/hephaistos-launcher#readme")
-                            )
-                            context.startActivity(intent)
+                            isDocViewerOpen = true
                         }
                 ) {
                     Row(
@@ -304,7 +300,7 @@ fun SettingsScreen(
                                 .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.2f))
                         ) {
                             Icon(
-                                Icons.Default.OpenInBrowser,
+                                Icons.Default.Description,
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.primary
                             )
@@ -314,12 +310,12 @@ fun SettingsScreen(
 
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = stringResource(R.string.github_repository),
+                                text = "Documentation de l'Écosystème (docs/)",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold
                             )
                             Text(
-                                text = "Code source, actions GitHub CI et documentation en ligne",
+                                text = "Consultez les spécifications complètes, le fichier manifest.json et la page HTML docs/index.html.",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

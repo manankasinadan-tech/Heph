@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Officielle - Écosystème Hephaistos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0f14;
+            --surface-color: #151921;
+            --surface-border: #262c3a;
+            --primary-amber: #e29e2e;
+            --primary-glow: rgba(226, 158, 46, 0.2);
+            --text-main: #f1f3f9;
+            --text-muted: #9aa2b5;
+            --code-bg: #090a0d;
+            --accent-green: #34d399;
+            --accent-cyan: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(180deg, #181d28 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-glow);
+            color: var(--primary-amber);
+            border: 1px solid rgba(226, 158, 46, 0.4);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 14px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            color: var(--primary-amber);
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-amber);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: var(--text-main);
+        }
+
+        p, ul, ol {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        ul, ol {
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--code-bg);
+            border: 1px solid var(--surface-border);
+            color: var(--primary-amber);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 14px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            color: #d4d4d8;
+            line-height: 1.5;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        th {
+            background-color: var(--code-bg);
+            color: var(--primary-amber);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .rule-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--surface-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge">Écosystème Modulaire GSI</div>
+    <h1>Guide Officiel <span>Hephaistos</span></h1>
+    <p class="subtitle">Spécifications architecturales, protocole IPC inter-modules et directives de design unifiées pour l'écosystème de portage Android.</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>1. Philosophie & Règle Absolue</h2>
+        <p>L'écosystème Hephaistos est une suite d'outils modulaires indépendants dédiés à la manipulation, à l'extraction et au portage automatique de GSI (Generic System Image) et de partitions système (sparse, raw, erofs, ext4).</p>
+        <ul>
+            <li><strong>Package universel :</strong> Chaque application future DOIT avoir pour package <code>com.hephaistos.&lt;nom_application&gt;</code>.</li>
+            <li><strong>Zéro Interface Indépendante Anarchique :</strong> Les applications futures sont des moteurs headless ou services qui s'appuient à 100% sur les composants et directives d'interface unifiés fournis par Hephaistos.</li>
+            <li><strong>Auto-Documentation Obligatoire :</strong> Chaque application doit embarquer son fichier <code>manifest.json</code> décrivant rigoureusement ses commandes, ses arguments et son format de sortie JSON.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>2. Protocole de Communication (IPC)</h2>
+        <p>Les applications communiquent sans couplage de code source grâce aux Intents Android et charges utiles JSON :</p>
+        
+        <h3>Action d'Exécution : <code>com.hephaistos.action.EXECUTE</code></h3>
+        <pre><code>val intent = Intent("com.hephaistos.action.EXECUTE").apply {
+    setPackage("com.hephaistos.unpacker")
+    putExtra("EXTRA_COMMAND", "unpack")
+    putExtra("EXTRA_PAYLOAD", """{"input_path":"/sdcard/system.img"}""")
+    putExtra("EXTRA_REQUEST_ID", "req_123456")
+    putExtra("EXTRA_SENDER", "com.hephaistos.launcher")
+}
+context.sendBroadcast(intent)</code></pre>
+
+        <h3>Action de Résultat : <code>com.hephaistos.action.RESULT</code></h3>
+        <pre><code>val resultIntent = Intent("com.hephaistos.action.RESULT").apply {
+    setPackage(senderPackage)
+    putExtra("EXTRA_REQUEST_ID", requestId)
+    putExtra("EXTRA_STATUS", "SUCCESS")
+    putExtra("EXTRA_RESPONSE_JSON", """
+    {
+        "status": "SUCCESS",
+        "partitions": ["system", "vendor", "product"],
+        "durationMs": 1450
+    }
+    """.trimIndent())
+}
+context.sendBroadcast(resultIntent)</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>3. Directives d'Interface Unifiées (UI / UX)</h2>
+        <p>Toutes les règles d'interface suivantes sont intégrées et standardisées par Hephaistos :</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Composant</th>
+                        <th>Standard Hephaistos</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Accueil</strong></td>
+                        <td><span class="rule-badge">Minimaliste</span></td>
+                        <td>Centré sur la tâche principale sans surcharge visuelle.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cartes d'options</strong></td>
+                        <td><span class="rule-badge">OptionCard</span></td>
+                        <td>Carte Material 3 avec nom, icône à gauche et toggle optionnel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sélecteur de fichiers</strong></td>
+                        <td><span class="rule-badge">FilePickerDialog</span></td>
+                        <td>Champ de saisie ouvrant le gestionnaire en popup modale.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Disposition</strong></td>
+                        <td><span class="rule-badge">Grille ou Liste</span></td>
+                        <td>Bascule simple entre vue grille et vue liste verticale.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Toggles & Switches</strong></td>
+                        <td><span class="rule-badge">M3 Switch</span></td>
+                        <td>Pour les options booléennes de traitement (sparse, compression).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notifications</strong></td>
+                        <td><span class="rule-badge">Progress Notification</span></td>
+                        <td>Intégration de toute tâche de fond dans la barre de notifications Android.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Terminal</strong></td>
+                        <td><span class="rule-badge">Console Hephaistos</span></td>
+                        <td>Exécution directe et capture des logs dans la console centrale.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Modèle de Manifeste (manifest.json)</h2>
+        <p>Voici le format strict que tout moteur ou agent IA doit fournir :</p>
+        <pre><code>{
+  "$schema": "https://hephaistos.dev/schemas/module-v1.json",
+  "moduleId": "com.hephaistos.unpacker",
+  "name": "Hephaistos Image Unpacker",
+  "version": "1.0.0",
+  "description": "Moteur d'extraction d'images sparse et raw",
+  "commands": [
+    {
+      "name": "unpack",
+      "description": "Déballe une image système en partitions réelles",
+      "parameters": [
+        { "name": "input_path", "type": "string", "required": true },
+        { "name": "output_dir", "type": "string", "required": true }
+      ],
+      "outputFormat": {
+        "status": "string",
+        "partitions": "array of strings"
+      }
+    }
+  ]
+}</code></pre>
+    </div>
+
+</div>
+
+<footer>
+    <p>Écosystème Hephaistos &copy; 2026 - Conçu pour les outils de portage GSI et partitions Android.</p>
+</footer>
+
+</body>
+</html>
