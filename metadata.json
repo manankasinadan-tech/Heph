@@ -1,0 +1,6 @@
+{
+  "name": "Hephaistos",
+  "description": "Lanceur et orchestrateur modulaire pour l'écosystème GSI Hephaistos",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

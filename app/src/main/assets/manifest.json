@@ -1,0 +1,80 @@
+{
+  "$schema": "https://hephaistos.dev/schemas/module-v1.json",
+  "moduleId": "com.hephaistos.sample_module",
+  "name": "Sample Engine Module",
+  "version": "1.0.0",
+  "description": "Standard specification manifest template for Hephaistos GSI & Partition Ecosystem modules.",
+  "author": "Hephaistos Project",
+  "capabilities": [
+    "unpack_img",
+    "extract_partition",
+    "generate_overlay"
+  ],
+  "ipc": {
+    "intentAction": "com.hephaistos.action.EXECUTE",
+    "resultAction": "com.hephaistos.action.RESULT",
+    "responseReceiver": "com.hephaistos.launcher.Receiver"
+  },
+  "commands": [
+    {
+      "name": "ping",
+      "description": "Checks module heartbeat and returns active version and readiness status.",
+      "parameters": [],
+      "outputFormat": {
+        "status": "string (SUCCESS | ERROR)",
+        "message": "string",
+        "timestamp": "number (epoch ms)"
+      }
+    },
+    {
+      "name": "unpack",
+      "description": "Unpacks an Android sparse or raw image file into partition chunks.",
+      "parameters": [
+        {
+          "name": "input_path",
+          "type": "string",
+          "required": true,
+          "description": "Absolute path or URI to the input .img file"
+        },
+        {
+          "name": "output_dir",
+          "type": "string",
+          "required": true,
+          "description": "Target extraction directory"
+        },
+        {
+          "name": "verify_sparse",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "Automatically verify sparse magic header"
+        }
+      ],
+      "outputFormat": {
+        "status": "string",
+        "partitions": "array of strings",
+        "totalBytes": "number",
+        "checksumSha256": "string"
+      }
+    },
+    {
+      "name": "status",
+      "description": "Retrieves the progress and logs of any ongoing background process.",
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "string",
+          "required": true,
+          "description": "The unique identifier of the background job"
+        }
+      ],
+      "outputFormat": {
+        "taskId": "string",
+        "progress": "integer (0-100)",
+        "phase": "string",
+        "isDone": "boolean",
+        "error": "string or null"
+      }
+    }
+  ]
+}

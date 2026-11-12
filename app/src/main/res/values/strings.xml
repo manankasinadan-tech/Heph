@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Hephaistos</string>
+    <string name="dock_refresh">Actualiser</string>
+    <string name="dock_console">Console</string>
+    <string name="dock_settings">Paramètres</string>
+    <string name="search_hint">Rechercher un module...</string>
+    <string name="empty_modules_title">Aucun module Hephaistos détecté</string>
+    <string name="empty_modules_desc">Les modules de l\'écosystème doivent avoir un package com.hephaistos.* ou être activés manuellement dans les Paramètres.</string>
+    <string name="console_title">Terminal Hephaistos</string>
+    <string name="console_placeholder">Entrez une commande (ex: help, list, ping)...</string>
+    <string name="settings_title">Paramètres de l\'environnement</string>
+    <string name="theme_title">Thème de l\'interface</string>
+    <string name="theme_system">Système</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="module_selection_title">Modules de l\'environnement</string>
+    <string name="module_selection_desc">Sélectionnez manuellement les applications installées à intégrer dans le lanceur.</string>
+    <string name="documentation_title">Spécifications &amp; Documentation</string>
+    <string name="download_manifest">Télécharger manifest.json</string>
+    <string name="download_spec">Télécharger ECOSYSTEM_SPEC.md</string>
+    <string name="github_repository">Dépôt GitHub &amp; Documentation en ligne</string>
+</resources>
